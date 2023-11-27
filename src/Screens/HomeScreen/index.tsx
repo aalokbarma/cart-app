@@ -26,10 +26,11 @@ const HomeScreen = () => {
               data={updatedPostsData}
               keyExtractor={({item, index}) => item}
               renderItem={(item) => <ProductCard item = {item} />}
+              showsHorizontalScrollIndicator = {false}
+              showsVerticalScrollIndicator = {false}
             />
             : 
             <View style = {Styles.nothingComponentContainer}>
-              {/* <MaterialCommunityIcons name="checkbox-blank-off-outline" size={55} color="#999" /> */}
               <Text style = {Styles.noDataText}>Nothing to show.</Text>
             </View>
         } 

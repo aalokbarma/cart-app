@@ -26,11 +26,11 @@ const ProductCard = ({item}: itemPropTypes) => {
             />
         </View>
         <View style = {Styles.rightContainer}>
-            <Text style = {Styles.productTitle}>{item.item.title}</Text>
-            <Text style = {Styles.productDescription}>{item.item.description}</Text>
+            <Text style = {Styles.productTitle} numberOfLines={1}>{item.item.title}</Text>
+            <Text style = {Styles.productDescription} numberOfLines={3}>{item.item.description}</Text>
             <View style = {Styles.priceContainer}>
                 <Text style = {Styles.priceLabel}>Price:</Text>
-                <Text style = {Styles.priceValue}>$ {item.item.price}</Text>
+                <Text style = {Styles.priceValue}>${item.item.price}</Text>
             </View>
         </View>
       </View>
