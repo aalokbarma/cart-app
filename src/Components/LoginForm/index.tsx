@@ -5,6 +5,7 @@ import lock from '../../Assets/lock.png';
 import hide from '../../Assets/eye.png';
 import mail from '../../Assets/mail.png';
 import show from '../../Assets/open_eye.png';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -45,6 +46,7 @@ const LoginForm = ({ navigation}: loginFormTypes) => {
     const onSubmit = async (value: valueTypes) => {
         // Define a fixed login credential to login into the app
         if(value.Email == "demo@yopmail.com" && value.Password == "demo@124"){
+            AsyncStorage.setItem("KeepLoggedIn", JSON.stringify(true))
             Alert.alert('Success', 'Login Successful', [
                 {
                   text: 'OK',
