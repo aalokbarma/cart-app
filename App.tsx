@@ -18,7 +18,6 @@ function App(): JSX.Element {
   useEffect(() => {
     SplashScreen.hide();
   }, [])
-  SplashScreen.hide();
 
   return (
     <SafeAreaView style={styles.container}>

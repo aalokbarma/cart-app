@@ -9,6 +9,7 @@ import show from '../../Assets/open_eye.png';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
+// Declare the validations for the email and password
 const reviewSchema = yup.object({
     Email:  yup.string()
         .required()
@@ -25,8 +26,12 @@ interface loginFormTypes{
         push: Function
     }
 }
+interface valueTypes{
+    Email: string,
+    Password: string
+}
 
-const LoginForm = ({ navigation}: any) => {
+const LoginForm = ({ navigation}: loginFormTypes) => {
     const [securePass, setSecurePass] = useState(true);
 
     const onLockPress = () => {
@@ -37,7 +42,8 @@ const LoginForm = ({ navigation}: any) => {
         }
     };
 
-    const onSubmit = async (value: any, actions: any) => {
+    const onSubmit = async (value: valueTypes) => {
+        // Define a fixed login credential to login into the app
         if(value.Email == "demo@yopmail.com" && value.Password == "demo@124"){
             Alert.alert('Success', 'Login Successful', [
                 {

@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import React, { useEffect } from 'react';
 import Styles from './styles';
 import ProductCard from '../../Components/ProductCard';
@@ -31,7 +31,8 @@ const HomeScreen = () => {
             />
             : 
             <View style = {Styles.nothingComponentContainer}>
-              <Text style = {Styles.noDataText}>Nothing to show.</Text>
+              <ActivityIndicator color={'#002dfe'} />
+              <Text style = {Styles.noDataText}>Loading...</Text>
             </View>
         } 
     </View>
