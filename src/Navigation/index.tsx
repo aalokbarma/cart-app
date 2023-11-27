@@ -5,7 +5,7 @@ import HomeScreen from '../Screens/HomeScreen';
 import LoginScreen from '../Screens/Login';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Stack = createStackNavigator();
+const AuthStack = createStackNavigator();
 
 const Navigation = () => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean|null|string>(false)
@@ -14,30 +14,26 @@ const Navigation = () => {
         try {
             const data = await AsyncStorage.getItem("KeepLoggedIn");
             setIsLoggedIn(data);
-        } catch (error) {
-            
-        }
-        
+        } catch (error) {}
     }
 
     useEffect(() => {
         retrieveData();
-    }, [])
+    }, [isLoggedIn])
 
     
+    const AuthStackNavigator = () => {
+        return(
+            <AuthStack.Navigator initialRouteName={isLoggedIn == 'true' ?'Home':'Login'} screenOptions={{headerShown: false}}>
+                <AuthStack.Screen name="Login" component={LoginScreen} />
+                <AuthStack.Screen name="Home" component={HomeScreen} />
+            </AuthStack.Navigator>
+        )
+    }
 
     return(
         <NavigationContainer>
-            {
-                isLoggedIn ? 
-                <Stack.Navigator screenOptions={{headerShown: false}}>
-                <Stack.Screen name="Home" component={HomeScreen} />
-            </Stack.Navigator>
-            :
-            <Stack.Navigator screenOptions={{headerShown: false}}>
-                <Stack.Screen name="Login" component={LoginScreen} />
-            </Stack.Navigator>
-            }
+            <AuthStackNavigator />
         </NavigationContainer>
     )
 };
