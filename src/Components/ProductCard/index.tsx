@@ -18,7 +18,7 @@ const ProductCard = ({item}: itemPropTypes) => {
     
   return (
     <View style = {Styles.productCard}>
-      <View style = {Styles.cardContainer}>
+      <View style = {[Styles.cardContainer, Styles.shadowProp]}>
         <View style = {Styles.leftContainer}>
             <Image 
                 source={{uri: item.item.image}}
@@ -30,7 +30,7 @@ const ProductCard = ({item}: itemPropTypes) => {
             <Text style = {Styles.productDescription} numberOfLines={3}>{item.item.description}</Text>
             <View style = {Styles.priceContainer}>
                 <Text style = {Styles.priceLabel}>Price:</Text>
-                <Text style = {Styles.priceValue}>${item.item.price}</Text>
+                <Text style = {Styles.priceValue}>₹{item.item.price}</Text>
             </View>
         </View>
       </View>

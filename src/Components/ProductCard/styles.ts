@@ -55,6 +55,13 @@ const Styles = StyleSheet.create({
         color: '#00f',
         fontWeight: '600',
         paddingLeft: 5,
+    },
+    shadowProp: {
+        shadowOffset: {width: 5, height: 5},  
+        shadowColor: '#777',  
+        shadowOpacity: 0.8,  
+        shadowRadius: 10,  
+        elevation: 10,
     }
 });
 

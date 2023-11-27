@@ -5,15 +5,21 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  Text,
 } from 'react-native';
 import Navigation from './src/Navigation';
+import SplashScreen from 'react-native-splash-screen'
 
 function App(): JSX.Element {
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, [])
+  SplashScreen.hide();
+
   return (
     <SafeAreaView style={styles.container}>
       <Navigation />
