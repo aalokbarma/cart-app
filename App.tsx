@@ -11,11 +11,12 @@ import {
   StyleSheet,
   Text,
 } from 'react-native';
+import Navigation from './src/Navigation';
 
 function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hello World!!!</Text>
+      <Navigation />
     </SafeAreaView>
   );
 }
